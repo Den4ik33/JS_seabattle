@@ -36,11 +36,17 @@ const show = {
         elem.className = value;
     }
 };
-
+var check = [''];
 const fire = (event) => {
-    const target = event.target
-    show.miss(target);
-    play.updateData = 'shot';
+    const target = event.target;
+    console.log('id = ' + event.target.id);
+    console.log(check[event.target.id] + ' - до');
+    if (check[event.target.id] != 1) {
+        show.miss(target);
+        play.updateData = 'shot';
+    }
+    check[event.target.id] = 1;
+    console.log(check[event.target.id] + ' - после');
 };
 
 const init = ( ) => {
